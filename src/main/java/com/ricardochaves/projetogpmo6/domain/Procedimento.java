@@ -1,25 +1,35 @@
 package com.ricardochaves.projetogpmo6.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="paciente")
-public class Paciente implements Serializable {
+@Document(collection="procedimento")
+public class Procedimento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private String id;
-	private Integer matricula;
 	
-	public Paciente() {
+	private Integer matricula;
+	private Date data;
+	private Integer tipo;
+	private Integer premio;
+	private Integer codigo;
+	
+	public Procedimento() {
 	}
 
-	public Paciente(String id, Integer matricula) {
+	public Procedimento(String id, Integer matricula, Date data, Integer tipo, Integer premio, Integer codigo) {
 		super();
 		this.id = id;
 		this.matricula = matricula;
+		this.data = data;
+		this.tipo = tipo;
+		this.premio = premio;
+		this.codigo = codigo;
 	}
 
 	public String getId() {
@@ -38,6 +48,38 @@ public class Paciente implements Serializable {
 		this.matricula = matricula;
 	}
 
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public Integer getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Integer tipo) {
+		this.tipo = tipo;
+	}
+
+	public Integer getPremio() {
+		return premio;
+	}
+
+	public void setPremio(Integer premio) {
+		this.premio = premio;
+	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -54,7 +96,7 @@ public class Paciente implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Paciente other = (Paciente) obj;
+		Procedimento other = (Procedimento) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
