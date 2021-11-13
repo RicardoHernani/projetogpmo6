@@ -1,3 +1,4 @@
+
 package com.ricardochaves.projetogpmo6.domain;
 
 import java.io.Serializable;

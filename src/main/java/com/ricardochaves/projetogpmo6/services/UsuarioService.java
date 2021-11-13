@@ -25,4 +25,10 @@ public class UsuarioService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 		}
 	
+	public Usuario insert(Usuario obj) {
+		return usuarioRepository.insert(obj);
+	}
+	
+	
+	
 }
