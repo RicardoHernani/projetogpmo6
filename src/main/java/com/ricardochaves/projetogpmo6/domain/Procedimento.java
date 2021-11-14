@@ -6,6 +6,8 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.ricardochaves.projetogpmo6.dto.UsuarioDTO;
+
 @Document(collection="procedimento")
 public class Procedimento implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -18,12 +20,12 @@ public class Procedimento implements Serializable {
 	private Integer tipo;
 	private Integer premio;
 	private Integer codigo;
-	private Usuario usuario;
+	private UsuarioDTO usuario;
 	
 	public Procedimento() {
 	}
 
-	public Procedimento(String id, Integer matricula, Date data, Integer tipo, Integer premio, Integer codigo, Usuario usuario) {
+	public Procedimento(String id, Integer matricula, Date data, Integer tipo, Integer premio, Integer codigo, UsuarioDTO usuario) {
 		super();
 		this.id = id;
 		this.matricula = matricula;
@@ -82,11 +84,11 @@ public class Procedimento implements Serializable {
 		this.codigo = codigo;
 	}
 	
-	public Usuario getUsuario() {
+	public UsuarioDTO getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(UsuarioDTO usuario) {
 		this.usuario = usuario;
 	}
 
