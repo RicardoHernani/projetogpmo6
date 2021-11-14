@@ -50,6 +50,13 @@ public class Instantiation implements CommandLineRunner {
 		Procedimento pro10 = new Procedimento(null, 66666666, sdf.parse("27/06/2019"), 1, 2, 30729017, new UsuarioDTO(ana));
 
 		procedimentoRepository.saveAll(Arrays.asList(pro1, pro2, pro3, pro4, pro5, pro6, pro7, pro8, pro9, pro10));
+		
+		ricardo.getProcedimentos().addAll(Arrays.asList(pro1, pro2, pro3));
+		debora.getProcedimentos().addAll(Arrays.asList(pro4, pro5));
+		ana.getProcedimentos().addAll(Arrays.asList(pro6, pro7, pro8, pro9, pro10));
+		
+		usuarioRepository.saveAll(Arrays.asList(ricardo, debora, ana));
+		
 	}
 
 }

@@ -2,8 +2,11 @@
 package com.ricardochaves.projetogpmo6.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="usuario")
@@ -16,6 +19,9 @@ public class Usuario implements Serializable {
 	private String nome;
 	private String email;
 	private String senha;
+	
+	@DBRef(lazy = true)
+	private List<Procedimento> procedimentos = new ArrayList<>();
 	
 	public Usuario() {
 	}
@@ -59,6 +65,15 @@ public class Usuario implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public List<Procedimento> getProcedimentos() {
+		return procedimentos;
+	}
+
+	public void setProcedimentos(List<Procedimento> procedimentos) {
+		this.procedimentos = procedimentos;
+	}
+
 
 	@Override
 	public int hashCode() {
