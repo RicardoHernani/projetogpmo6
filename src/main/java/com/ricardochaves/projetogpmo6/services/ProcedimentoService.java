@@ -1,6 +1,5 @@
 package com.ricardochaves.projetogpmo6.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +14,6 @@ public class ProcedimentoService {
 
 	@Autowired
 	private ProcedimentoRepository procedimentoRepository;
-	
-	public List<Procedimento> findAll(){
-			return procedimentoRepository.findAll();
-	}
 	
 	public Procedimento findById(String id) {
 		Optional<Procedimento> obj = procedimentoRepository.findById(id);
