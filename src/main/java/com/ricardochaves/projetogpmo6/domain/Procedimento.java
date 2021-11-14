@@ -18,11 +18,12 @@ public class Procedimento implements Serializable {
 	private Integer tipo;
 	private Integer premio;
 	private Integer codigo;
+	private Usuario usuario;
 	
 	public Procedimento() {
 	}
 
-	public Procedimento(String id, Integer matricula, Date data, Integer tipo, Integer premio, Integer codigo) {
+	public Procedimento(String id, Integer matricula, Date data, Integer tipo, Integer premio, Integer codigo, Usuario usuario) {
 		super();
 		this.id = id;
 		this.matricula = matricula;
@@ -30,6 +31,7 @@ public class Procedimento implements Serializable {
 		this.tipo = tipo;
 		this.premio = premio;
 		this.codigo = codigo;
+		this.usuario = usuario;
 	}
 
 	public String getId() {
@@ -79,6 +81,14 @@ public class Procedimento implements Serializable {
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	@Override
 	public int hashCode() {
@@ -104,7 +114,6 @@ public class Procedimento implements Serializable {
 			return false;
 		return true;
 	}
-	
 	
 	
 }
