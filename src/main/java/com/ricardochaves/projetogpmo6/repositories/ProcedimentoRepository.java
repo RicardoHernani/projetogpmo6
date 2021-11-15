@@ -18,4 +18,3 @@ public interface ProcedimentoRepository extends MongoRepository<Procedimento, St
 }
 
 //Quando colocar o caminho do campo este deve vir entre aspas simples com em 'usuario.nome'
-//Consultas com dbRef não funcionam
