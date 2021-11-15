@@ -10,6 +10,6 @@ import com.ricardochaves.projetogpmo6.domain.Referencia;
 @Repository
 public interface ReferenciaRepository extends MongoRepository<Referencia, String> {
 
-	Optional<Referencia> findByCodigoContaining(String codigoTabela);
+	Optional<Referencia> findByCodigoEquals(String codigoTabela);
 	
 }
