@@ -9,3 +9,4 @@ import com.ricardochaves.projetogpmo6.domain.Usuario;
 public interface UsuarioRepository extends MongoRepository<Usuario, String> {
 
 }
+

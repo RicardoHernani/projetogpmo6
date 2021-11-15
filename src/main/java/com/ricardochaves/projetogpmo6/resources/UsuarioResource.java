@@ -50,5 +50,6 @@ public class UsuarioResource {
 		Usuario obj = usuarioService.findById(id);
 		return ResponseEntity.ok().body(obj.getProcedimentos()); 
 	}
+
 	
 }
