@@ -27,4 +27,17 @@ public class ProcedimentoService {
 		return procedimentoRepository.fullSearch(nomeUsuario, dataInicial, dataFinal);
 	}
 	
+	public Procedimento insert(Procedimento obj) {
+		obj.setId(null);
+		obj.getMatricula();
+		obj.getData();
+		obj.getTipo();
+		obj.getPremio();
+		obj.getCodigo();
+		
+		obj = procedimentoRepository.save(obj);
+		return obj;
+		
+	}
+	
 }

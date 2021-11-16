@@ -19,13 +19,13 @@ public class Procedimento implements Serializable {
 	private Date data;
 	private Integer tipo;
 	private Integer premio;
-	private Integer codigo;
+	private String codigo;
 	private UsuarioDTO usuario;
 	
 	public Procedimento() {
 	}
 
-	public Procedimento(String id, Integer matricula, Date data, Integer tipo, Integer premio, Integer codigo, UsuarioDTO usuario) {
+	public Procedimento(String id, Integer matricula, Date data, Integer tipo, Integer premio, String codigo, UsuarioDTO usuario) {
 		super();
 		this.id = id;
 		this.matricula = matricula;
@@ -76,11 +76,11 @@ public class Procedimento implements Serializable {
 		this.premio = premio;
 	}
 
-	public Integer getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	
