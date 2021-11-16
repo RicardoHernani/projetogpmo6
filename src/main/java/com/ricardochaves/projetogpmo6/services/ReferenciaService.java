@@ -1,5 +1,6 @@
 package com.ricardochaves.projetogpmo6.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,4 +20,9 @@ public class ReferenciaService {
 		Optional<Referencia> obj = referenciaRepository.findByCodigoEquals(codigoTabela);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Código não encontrado"));
 		}
+	
+	public List<Referencia> findByDescricao(String text) {
+		return referenciaRepository.findByDescricaoContainingIgnoreCase(text);
+	}
+	
 }
