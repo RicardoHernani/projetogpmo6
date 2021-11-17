@@ -19,20 +19,23 @@ public class Procedimento implements Serializable {
 	private Date data;
 	private Integer tipo;
 	private Integer premio;
-	private String codigo;
+	
+	private Referencia referencia;
 	private UsuarioDTO usuario;
+	
 	
 	public Procedimento() {
 	}
 
-	public Procedimento(String id, Integer matricula, Date data, Integer tipo, Integer premio, String codigo, UsuarioDTO usuario) {
+	public Procedimento(String id, Integer matricula, Date data, Integer tipo, Integer premio, Referencia referencia, UsuarioDTO usuario) {
 		super();
 		this.id = id;
 		this.matricula = matricula;
 		this.data = data;
 		this.tipo = tipo;
 		this.premio = premio;
-		this.codigo = codigo;
+		
+		this.referencia = referencia;
 		this.usuario = usuario;
 	}
 
@@ -76,13 +79,7 @@ public class Procedimento implements Serializable {
 		this.premio = premio;
 	}
 
-	public String getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
+	
 	
 	public UsuarioDTO getUsuario() {
 		return usuario;
@@ -90,6 +87,14 @@ public class Procedimento implements Serializable {
 
 	public void setUsuario(UsuarioDTO usuario) {
 		this.usuario = usuario;
+	}
+
+	public Referencia getReferencia() {
+		return referencia;
+	}
+
+	public void setReferencia(Referencia referencia) {
+		this.referencia = referencia;
 	}
 
 	@Override

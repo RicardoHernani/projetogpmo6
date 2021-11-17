@@ -11,6 +11,7 @@ public class Referencia implements Serializable {
 
 	@Id
 	private String id;
+	
 	private String codigo;    //Atenção porque coloquei String e não Integer
 	private String descricao;
 	private Double ponto;

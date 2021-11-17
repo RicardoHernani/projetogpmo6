@@ -17,6 +17,15 @@ public class ProcedimentoService {
 	@Autowired
 	private ProcedimentoRepository procedimentoRepository;
 	
+	@Autowired
+	private UsuarioService usuarioService;
+	
+	@Autowired
+	private ReferenciaService referenciaService;
+	
+	@Autowired
+	private ProcedimentoService procedimentoService;
+	
 	public Procedimento findById(String id) {
 		Optional<Procedimento> obj = procedimentoRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
@@ -27,17 +36,15 @@ public class ProcedimentoService {
 		return procedimentoRepository.fullSearch(nomeUsuario, dataInicial, dataFinal);
 	}
 	
-	public Procedimento insert(Procedimento obj) {
+	/*public Procedimento insert(Procedimento obj) {
 		obj.setId(null);
 		obj.getMatricula();
 		obj.getData();
 		obj.getTipo();
 		obj.getPremio();
-		obj.getCodigo();
-		
+		obj.setReferencia(obj.get);
 		obj = procedimentoRepository.save(obj);
 		return obj;
-		
-	}
+	}*/
 	
 }
