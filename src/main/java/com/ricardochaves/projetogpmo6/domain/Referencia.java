@@ -5,11 +5,14 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Document(collection="referencia")
 public class Referencia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@JsonIgnore
 	private String id;
 	
 	private String codigo;    //Atenção porque coloquei String e não Integer

@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.ricardochaves.projetogpmo6.domain.Procedimento;
 import com.ricardochaves.projetogpmo6.domain.Usuario;
 import com.ricardochaves.projetogpmo6.dto.UsuarioDTO;
+import com.ricardochaves.projetogpmo6.dto.UsuarioDTO2;
 import com.ricardochaves.projetogpmo6.services.UsuarioService;
 
 @RestController
@@ -33,9 +33,9 @@ public class UsuarioResource {
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<UsuarioDTO> findById(@PathVariable String id) {
+	public ResponseEntity<UsuarioDTO2> findById(@PathVariable String id) {
 		Usuario obj = usuarioService.findById(id);
-		return ResponseEntity.ok().body(new UsuarioDTO(obj)); 
+		return ResponseEntity.ok().body(new UsuarioDTO2(obj)); 
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
@@ -45,11 +45,5 @@ public class UsuarioResource {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@RequestMapping(value="/{id}/procedimentos", method=RequestMethod.GET)
-	public ResponseEntity<List<Procedimento>> findProcedimentos(@PathVariable String id) {
-		Usuario obj = usuarioService.findById(id);
-		return ResponseEntity.ok().body(obj.getProcedimentos()); 
-	}
-
 	
 }

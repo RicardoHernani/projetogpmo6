@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.ricardochaves.projetogpmo6.domain.Usuario;
 
-//Classe DTO para trafegar dados do usuário, porém sem mostrar a senha
+//Classe DTO para trafegar dados do usuário, porém sem mostrar a senha e email
 public class UsuarioDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 

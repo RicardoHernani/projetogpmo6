@@ -43,7 +43,7 @@ public class ProcedimentoService {
 		return obj;	
 		
 		/*Não precisa colocar o id ou nome em um get pois a jpa já faz isso em um objeto já
-		existente*/
+		existente. Colocar apenas na requisição html.*/
 		
 	}
 	
