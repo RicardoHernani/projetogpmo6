@@ -16,6 +16,9 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	@Autowired
+	private UsuarioService usuarioService;
+	
 	public List<Usuario> findAll(){
 			return usuarioRepository.findAll();
 	}
@@ -33,5 +36,17 @@ public class UsuarioService {
 		findById(id);
 		usuarioRepository.deleteById(id);
 	}
+	
+	public Usuario updateSenha(Usuario obj) {
+		Usuario newObj = usuarioService.findById(obj.getId()); //Nas versões novas do Spring substituir o usuarioRepository e findOne 
+		updateData(newObj, obj);							   //por usuarioService e findById.
+		return usuarioRepository.save(newObj);
+	}
+
+	private void updateData(Usuario newObj, Usuario obj) {
+		newObj.setSenha(obj.getSenha());
+	}
+	
+	
 	
 }

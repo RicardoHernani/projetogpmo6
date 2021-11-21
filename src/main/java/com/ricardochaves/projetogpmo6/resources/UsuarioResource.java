@@ -51,4 +51,11 @@ public class UsuarioResource {
 		return ResponseEntity.noContent().build(); 
 	}
 	
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> updateSenha(@RequestBody Usuario obj, @PathVariable String id) {
+		obj.setId(id);
+		obj = usuarioService.updateSenha(obj);
+		return ResponseEntity.noContent().build(); 
+	}
+	
 }
