@@ -6,9 +6,12 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ricardochaves.projetogpmo6.domain.Procedimento;
 import com.ricardochaves.projetogpmo6.repositories.ProcedimentoRepository;
+import com.ricardochaves.projetogpmo6.repositories.ReferenciaRepository;
+import com.ricardochaves.projetogpmo6.repositories.UsuarioRepository;
 import com.ricardochaves.projetogpmo6.services.exception.ObjectNotFoundException;
 
 @Service
@@ -24,6 +27,12 @@ public class ProcedimentoService {
 	private ReferenciaService referenciaService;
 	
 	@Autowired
+	private ReferenciaRepository referenciaRepository;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
 	private ProcedimentoService procedimentoService;
 	
 	public Procedimento findById(String id) {
@@ -36,15 +45,20 @@ public class ProcedimentoService {
 		return procedimentoRepository.fullSearch(nomeUsuario, dataInicial, dataFinal);
 	}
 	
-	/*public Procedimento insert(Procedimento obj) {
-		obj.setId(null);
+	@Transactional
+	public Procedimento insert(Procedimento obj) {
+		obj.setId(null);	
 		obj.getMatricula();
 		obj.getData();
 		obj.getTipo();
 		obj.getPremio();
-		obj.setReferencia(obj.get);
+		obj.setReferencia(referenciaService.findByCodigo(obj.getCodigo()));
+		
+		//usuario.setId(obj.getId());
+
 		obj = procedimentoRepository.save(obj);
+		
 		return obj;
-	}*/
+	}
 	
 }
