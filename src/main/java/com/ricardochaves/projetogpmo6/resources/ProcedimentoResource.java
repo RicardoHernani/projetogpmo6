@@ -56,5 +56,12 @@ public class ProcedimentoResource {
 		procedimentoService.delete(id);
 		return ResponseEntity.noContent().build(); 
 	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> updateProcedimento(@RequestBody Procedimento obj, @PathVariable String id) {
+		obj.setId(id);
+		obj = procedimentoService.updateProcedimento(obj);
+		return ResponseEntity.noContent().build(); 
+	}
 
 }

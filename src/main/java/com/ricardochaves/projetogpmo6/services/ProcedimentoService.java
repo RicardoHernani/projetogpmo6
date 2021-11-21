@@ -17,6 +17,9 @@ public class ProcedimentoService {
 
 	@Autowired
 	private ProcedimentoRepository procedimentoRepository;
+	
+	@Autowired
+	private ProcedimentoService procedimentoService;
 		
 	@Autowired
 	private ReferenciaService referenciaService;
@@ -48,6 +51,21 @@ public class ProcedimentoService {
 	public void delete(String id) {
 		findById(id);
 		procedimentoRepository.deleteById(id);
+	}
+	
+	public Procedimento updateProcedimento(Procedimento obj) {
+		Procedimento newObj = procedimentoService.findById(obj.getId());  
+		updateData(newObj, obj);							   
+		return procedimentoRepository.save(newObj);
+	}
+
+	private void updateData(Procedimento newObj, Procedimento obj) {
+		newObj.setMatricula(obj.getMatricula());
+		newObj.setData(obj.getData());
+		newObj.setTipo(obj.getTipo());
+		newObj.setPremio(obj.getPremio());
+		newObj.setCodigo(obj.getCodigo());
+		newObj.setReferencia(referenciaService.findByCodigo(obj.getCodigo()));
 	}
 			
 }
