@@ -23,11 +23,15 @@ public class UsuarioService {
 	public Usuario findById(String id) {
 		Optional<Usuario> obj = usuarioRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Usuário não encontrado"));
-		}
+	}
 	
 	public Usuario insert(Usuario obj) {
 		return usuarioRepository.insert(obj);
 	}
 	
+	public void delete(String id) {
+		findById(id);
+		usuarioRepository.deleteById(id);
+	}
 	
 }

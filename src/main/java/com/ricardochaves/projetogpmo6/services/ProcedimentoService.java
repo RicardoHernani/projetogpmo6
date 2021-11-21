@@ -39,12 +39,15 @@ public class ProcedimentoService {
 		obj.getTipo();
 		obj.getPremio();
 		obj.setReferencia(referenciaService.findByCodigo(obj.getCodigo()));
-		obj = procedimentoRepository.save(obj);	
+		obj = procedimentoRepository.save(obj);		
 		return obj;	
-		
 		/*Não precisa colocar o id ou nome em um get pois a jpa já faz isso em um objeto já
 		existente. Colocar apenas na requisição html.*/
-		
 	}
-	
+		
+	public void delete(String id) {
+		findById(id);
+		procedimentoRepository.deleteById(id);
+	}
+			
 }
