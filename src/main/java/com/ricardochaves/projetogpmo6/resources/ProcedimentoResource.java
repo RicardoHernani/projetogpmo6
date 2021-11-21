@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.ricardochaves.projetogpmo6.domain.Procedimento;
-import com.ricardochaves.projetogpmo6.dto.UsuarioDTO;
 import com.ricardochaves.projetogpmo6.resources.util.URL;
 import com.ricardochaves.projetogpmo6.services.ProcedimentoService;
 

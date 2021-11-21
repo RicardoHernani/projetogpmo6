@@ -10,8 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ricardochaves.projetogpmo6.domain.Procedimento;
 import com.ricardochaves.projetogpmo6.repositories.ProcedimentoRepository;
-import com.ricardochaves.projetogpmo6.repositories.ReferenciaRepository;
-import com.ricardochaves.projetogpmo6.repositories.UsuarioRepository;
 import com.ricardochaves.projetogpmo6.services.exception.ObjectNotFoundException;
 
 @Service
@@ -19,25 +17,13 @@ public class ProcedimentoService {
 
 	@Autowired
 	private ProcedimentoRepository procedimentoRepository;
-	
-	@Autowired
-	private UsuarioService usuarioService;
-	
+		
 	@Autowired
 	private ReferenciaService referenciaService;
 	
-	@Autowired
-	private ReferenciaRepository referenciaRepository;
-	
-	@Autowired
-	private UsuarioRepository usuarioRepository;
-	
-	@Autowired
-	private ProcedimentoService procedimentoService;
-	
 	public Procedimento findById(String id) {
 		Optional<Procedimento> obj = procedimentoRepository.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Procedimento não encontrado"));
 		}
 	
 	public List<Procedimento> fullSearch(String nomeUsuario, Date dataInicial, Date dataFinal) {
@@ -53,12 +39,12 @@ public class ProcedimentoService {
 		obj.getTipo();
 		obj.getPremio();
 		obj.setReferencia(referenciaService.findByCodigo(obj.getCodigo()));
+		obj = procedimentoRepository.save(obj);	
+		return obj;	
 		
-		//usuario.setId(obj.getId());
-
-		obj = procedimentoRepository.save(obj);
+		/*Não precisa colocar o id ou nome em um get pois a jpa já faz isso em um objeto já
+		existente*/
 		
-		return obj;
 	}
 	
 }
