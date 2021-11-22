@@ -38,7 +38,7 @@ public class ReferenciaResource {
 	
 	@RequestMapping(value="/descricaosearch/page", method=RequestMethod.GET)
 	public ResponseEntity<Page<Referencia>> findPage(
-			@RequestParam(value="nomeUsuario", defaultValue="") String text, 
+			@RequestParam(value="text", defaultValue="") String text, 
 			@RequestParam(value="page", defaultValue="0") Integer page,
 			@RequestParam(value="linesPerPage", defaultValue="24") Integer linesPerPage,
 			@RequestParam(value="orderBy", defaultValue="text") String orderBy,

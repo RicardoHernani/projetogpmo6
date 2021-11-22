@@ -25,7 +25,8 @@ public class UsuarioService {
 	
 	public Usuario findById(String id) {
 		Optional<Usuario> obj = usuarioRepository.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Usuário não encontrado"));
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Usuário não encontrado! id: " + id
+				+ ", Tipo: " + Usuario.class.getName()));
 	}
 	
 	public Usuario insert(Usuario obj) {

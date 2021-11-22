@@ -21,7 +21,7 @@ public class ReferenciaService {
 	
 	public Referencia findByCodigo(String codigoTabela) {
 		Optional<Referencia> obj = referenciaRepository.findByCodigoEquals(codigoTabela);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Código não encontrado"));
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Código não encontrado! Código: " + codigoTabela + " Tipo: " + Referencia.class.getName()));
 		}
 	
 	public List<Referencia> findByDescricao(String text) {

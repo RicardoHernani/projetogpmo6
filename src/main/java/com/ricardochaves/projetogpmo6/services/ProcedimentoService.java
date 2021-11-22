@@ -29,7 +29,8 @@ public class ProcedimentoService {
 	
 	public Procedimento findById(String id) {
 		Optional<Procedimento> obj = procedimentoRepository.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Procedimento não encontrado"));
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Procedimento não encontrado! id: " + id
+				+ ", Tipo: " + Procedimento.class.getName()));
 		}
 	
 	public List<Procedimento> fullSearch(String nomeUsuario, Date dataInicial, Date dataFinal) {
