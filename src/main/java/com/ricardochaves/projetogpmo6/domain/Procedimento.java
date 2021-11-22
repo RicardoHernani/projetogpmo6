@@ -6,6 +6,7 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ricardochaves.projetogpmo6.dto.UsuarioDTO;
 
 @Document(collection="procedimento")
@@ -16,7 +17,10 @@ public class Procedimento implements Serializable {
 	private String id;
 	
 	private Integer matricula;
+	
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date data;
+	
 	private Integer tipo;
 	private Integer premio;
 	private String codigo;
