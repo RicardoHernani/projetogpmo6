@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -64,4 +65,18 @@ public class ProcedimentoResource {
 		return ResponseEntity.noContent().build(); 
 	}
 
+	@RequestMapping(value="/fullsearch/page", method=RequestMethod.GET)
+	public ResponseEntity<Page<Procedimento>> findPage(
+			@RequestParam(value="nomeUsuario", defaultValue="") String nomeUsuario, 
+			@RequestParam(value="dataInicial", defaultValue="") String dataInicial,
+			@RequestParam(value="dataFinal", defaultValue="") String dataFinal,
+			@RequestParam(value="page", defaultValue="0") Integer page,
+			@RequestParam(value="linesPerPage", defaultValue="24") Integer linesPerPage,
+			@RequestParam(value="orderBy", defaultValue="text") String orderBy,
+			@RequestParam(value="direction", defaultValue="ASC") String direction) {
+			Date inicio = URL.convertDate(dataInicial, new Date(0L));
+			Date fim = URL.convertDate(dataFinal, new Date());
+			Page<Procedimento> list = procedimentoService.findByDate(nomeUsuario, inicio, fim, page, linesPerPage, orderBy, direction);
+			return ResponseEntity.ok().body(list);
+	}
 }
