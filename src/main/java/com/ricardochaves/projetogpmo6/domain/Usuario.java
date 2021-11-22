@@ -4,7 +4,8 @@ package com.ricardochaves.projetogpmo6.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.validation.constraints.NotEmpty;  //Tive que baixar as dependências no pom.xml
+import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,7 +17,10 @@ public class Usuario implements Serializable {
 	@Id
 	private String id;
 	
+	@NotEmpty(message="Preenchimento obrigatório")
+	@Length(min=5, max=10, message="O tamanho deve ser entre 5 e 10 caracteres")
 	private String nome;
+	
 	private String email;
 	private String senha;
 	
