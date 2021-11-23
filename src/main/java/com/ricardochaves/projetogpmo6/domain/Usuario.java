@@ -20,13 +20,15 @@ public class Usuario implements Serializable {
 	@Id
 	private String id;
 	
-	@NotEmpty(message="Preenchimento obrigatório")
-	@Length(min=3, max=10, message="O tamanho deve ser entre 3 e 10 caracteres")
+	@NotEmpty(message="O nome de usuário é de preenchimento obrigatório")
+	@Length(min=3, max=10, message="O nome de usuário deve conter entre 3 e 10 caracteres")
 	private String nome;
 	
+	@NotEmpty(message="O email é de preenchimento obrigatório")
 	@Email(message="O email deve ser válido")
 	private String email;
 	
+	@NotEmpty(message="A senha é de preenchimento obrigatório")
 	private String senha;
 	
 	@DBRef(lazy = true)
