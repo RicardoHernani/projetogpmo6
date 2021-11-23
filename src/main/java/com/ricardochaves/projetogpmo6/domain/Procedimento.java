@@ -20,7 +20,7 @@ public class Procedimento implements Serializable {
 	@Id
 	private String id;
 	
-	@Positive(message="Os valores devem ser positivos")
+	@Positive(message="As matrículas devem ser números positivos")
 	@Max(value=99999999, message="Os valores não devem exceder a 99999999")
 	private Integer matricula;
 	
