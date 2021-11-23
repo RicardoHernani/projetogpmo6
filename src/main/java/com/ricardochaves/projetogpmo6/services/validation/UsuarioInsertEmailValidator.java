@@ -12,13 +12,13 @@ import com.ricardochaves.projetogpmo6.domain.Usuario;
 import com.ricardochaves.projetogpmo6.repositories.UsuarioRepository;
 import com.ricardochaves.projetogpmo6.resources.exception.FieldMessage;
 
-public class UsuarioInsertValidator implements ConstraintValidator<UsuarioInsert, Usuario> {
+public class UsuarioInsertEmailValidator implements ConstraintValidator<UsuarioInsertEmail, Usuario> {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
 	@Override
-	public void initialize(UsuarioInsert ann) {
+	public void initialize(UsuarioInsertEmail ann) {
 	}
 
 	@Override

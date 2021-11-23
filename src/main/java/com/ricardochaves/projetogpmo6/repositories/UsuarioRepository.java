@@ -10,7 +10,10 @@ import com.ricardochaves.projetogpmo6.domain.Usuario;
 public interface UsuarioRepository extends MongoRepository<Usuario, String> {
 	
 	@Transactional(readOnly=true)
-	Usuario findByEmail(String email);
+	Usuario findByEmail (String email);
+	
+	@Transactional(readOnly=true)
+	Usuario findByNome (String nome);
 
 }
 
