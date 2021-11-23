@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Positive;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -29,7 +30,9 @@ public class Procedimento implements Serializable {
 	private Integer tipo;
 	private Integer premio;
 	
+	@Length(min=8, max=8, message="O código deve conter 8 dígitos")
 	private String codigo;
+	
 	private Referencia referencia;
 	private UsuarioDTO usuario;
 	
