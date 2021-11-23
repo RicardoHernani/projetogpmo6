@@ -18,7 +18,7 @@ public class Usuario implements Serializable {
 	private String id;
 	
 	@NotEmpty(message="Preenchimento obrigatório")
-	@Length(min=5, max=10, message="O tamanho deve ser entre 5 e 10 caracteres")
+	@Length(min=3, max=10, message="O tamanho deve ser entre 3 e 10 caracteres")
 	private String nome;
 	
 	private String email;
