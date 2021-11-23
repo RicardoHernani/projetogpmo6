@@ -34,6 +34,7 @@ public class Usuario implements Serializable {
 	private String email;
 	
 	@NotEmpty(message="A senha é de preenchimento obrigatório")
+	@Length(min=6, max=10, message="A senha deve conter entre 6 e 10 caracteres")
 	private String senha;
 	
 	@DBRef(lazy = true)
