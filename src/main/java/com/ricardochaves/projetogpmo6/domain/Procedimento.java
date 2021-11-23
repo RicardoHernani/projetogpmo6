@@ -3,6 +3,9 @@ package com.ricardochaves.projetogpmo6.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Positive;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,6 +19,8 @@ public class Procedimento implements Serializable {
 	@Id
 	private String id;
 	
+	@Positive(message="Os valores devem ser positivos")
+	@Max(value=99999999, message="Os valores não devem exceder a 99999999")
 	private Integer matricula;
 	
 	@JsonFormat(pattern="dd/MM/yyyy")
@@ -23,6 +28,7 @@ public class Procedimento implements Serializable {
 	
 	private Integer tipo;
 	private Integer premio;
+	
 	private String codigo;
 	private Referencia referencia;
 	private UsuarioDTO usuario;

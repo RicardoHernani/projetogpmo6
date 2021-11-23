@@ -4,7 +4,10 @@ package com.ricardochaves.projetogpmo6.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;  //Tive que baixar as dependências no pom.xml
+
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -21,7 +24,9 @@ public class Usuario implements Serializable {
 	@Length(min=3, max=10, message="O tamanho deve ser entre 3 e 10 caracteres")
 	private String nome;
 	
+	@Email(message="O email deve ser válido")
 	private String email;
+	
 	private String senha;
 	
 	@DBRef(lazy = true)
