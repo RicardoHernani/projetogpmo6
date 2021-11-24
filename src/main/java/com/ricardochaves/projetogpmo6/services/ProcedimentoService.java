@@ -27,6 +27,9 @@ public class ProcedimentoService {
 	@Autowired
 	private ReferenciaService referenciaService;
 	
+	@Autowired
+	private UsuarioService usuarioService;
+	
 	public Procedimento findById(String id) {
 		Optional<Procedimento> obj = procedimentoRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Procedimento não encontrado! id: " + id
@@ -45,11 +48,16 @@ public class ProcedimentoService {
 		obj.getData();
 		obj.getTipo();
 		obj.getPremio();
+		obj.getUsuario().getId();
 		obj.setReferencia(referenciaService.findByCodigo(obj.getCodigo()));
 		obj = procedimentoRepository.save(obj);		
 		return obj;	
+		
 		/*Não precisa colocar o id ou nome em um get pois a jpa já faz isso em um objeto já
-		existente. Colocar apenas na requisição html.*/
+		existente. Colocar apenas na requisição html.
+		
+		obj.getUsuario().setNome(usuarioService.findById(obj.getUsuario().getId()));
+*/
 	}
 		
 	public void delete(String id) {
