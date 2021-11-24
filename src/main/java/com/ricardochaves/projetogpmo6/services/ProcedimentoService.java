@@ -27,9 +27,6 @@ public class ProcedimentoService {
 	@Autowired
 	private ReferenciaService referenciaService;
 	
-	@Autowired
-	private UsuarioService usuarioService;
-	
 	public Procedimento findById(String id) {
 		Optional<Procedimento> obj = procedimentoRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Procedimento não encontrado! id: " + id
@@ -48,8 +45,9 @@ public class ProcedimentoService {
 		obj.getData();
 		obj.getTipo();
 		obj.getPremio();
-		obj.getUsuario().getId();
 		obj.setReferencia(referenciaService.findByCodigo(obj.getCodigo()));
+		obj.getUsuario().getId();
+		obj.getUsuario().getNome();
 		obj = procedimentoRepository.save(obj);		
 		return obj;	
 		
