@@ -11,6 +11,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.ricardochaves.projetogpmo6.domain.enums.TipoPremio;
+import com.ricardochaves.projetogpmo6.domain.enums.TipoProcedimento;
 import com.ricardochaves.projetogpmo6.dto.UsuarioDTO;
 
 @Document(collection="procedimento")
@@ -39,13 +41,13 @@ public class Procedimento implements Serializable {
 	public Procedimento() {
 	}
 
-	public Procedimento(String id, Integer matricula, Date data, Integer tipo, Integer premio, String codigo, Referencia referencia, UsuarioDTO usuario) {
+	public Procedimento(String id, Integer matricula, Date data, TipoProcedimento tipo, TipoPremio premio, String codigo, Referencia referencia, UsuarioDTO usuario) {
 		super();
 		this.id = id;
 		this.matricula = matricula;
 		this.data = data;
-		this.tipo = tipo;
-		this.premio = premio;
+		this.tipo = (tipo==null) ? null : tipo.getCod();
+		this.premio = (premio==null) ? null : premio.getCod();
 		this.codigo = codigo;
 		this.referencia = referencia;
 		this.usuario = usuario;
@@ -75,20 +77,20 @@ public class Procedimento implements Serializable {
 		this.data = data;
 	}
 
-	public Integer getTipo() {
-		return tipo;
+	public TipoProcedimento getTipo() {
+		return TipoProcedimento.toEnum(tipo);
 	}
 
-	public void setTipo(Integer tipo) {
-		this.tipo = tipo;
+	public void setTipo(TipoProcedimento tipo) {
+		this.tipo = tipo.getCod();
 	}
 
-	public Integer getPremio() {
-		return premio;
+	public TipoPremio getPremio() {
+		return TipoPremio.toEnum(premio);
 	}
 
-	public void setPremio(Integer premio) {
-		this.premio = premio;
+	public void setPremio(TipoPremio premio) {
+		this.premio = premio.getCod();
 	}
 
 	public String getCodigo() {
