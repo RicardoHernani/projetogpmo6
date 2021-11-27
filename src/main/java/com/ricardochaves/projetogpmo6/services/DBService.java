@@ -62,6 +62,7 @@ public class DBService {
 		Procedimento pro9 = new Procedimento(null, 55555555, sdf.parse("13/05/1998"), TipoProcedimento.PRINCIPAL, TipoPremio.TAREFABASICA, "31201113", ref6, new UsuarioDTO(ana));
 		Procedimento pro10 = new Procedimento(null, 66666666, sdf.parse("27/06/2019"), TipoProcedimento.PRINCIPAL, TipoPremio.TAREFABASICA, "30908027", ref3, new UsuarioDTO(ana));
 
+
 		procedimentoRepository.saveAll(Arrays.asList(pro1, pro2, pro3, pro4, pro5, pro6, pro7, pro8, pro9, pro10));
 		
 		ricardo.getProcedimentos().addAll(Arrays.asList(pro1, pro2, pro3));
